@@ -28,4 +28,11 @@ public class Hero extends LivingThing {
      * 指定されたダメージを hitPoint から引き、死亡判定を行う。
      * @param damage 受けたダメージ
      */
+    public void wounded(int damage) {
+        setHitpoint(getHitPoint() - damage);
+        if (getHitPoint() < 0) {
+            setDead(true);
+            System.out.printf("勇者%sは倒れた。\n", getName());
+        }
+    }
 }
